@@ -39,7 +39,14 @@ body {
   cursor: none;
 }
 
-/* CUSTOM CURSOR */
+.product-img {
+  width: 180px;
+  height: 220px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
 .cursor {
   position: fixed;
   width: 8px;
@@ -1207,99 +1214,46 @@ footer {
   </div>
   <div class="product-grid">
 
-    <!-- Product 1 -->
-    <div class="product-card">
-      <div class="product-card-bg pc-1"></div>
-      <div class="product-shoe-svg">
-        <svg width="180" height="220" viewBox="0 0 180 220" fill="none">
-          <defs>
-            <linearGradient id="p1g" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#8B2929"/>
-              <stop offset="100%" stop-color="#4A1010"/>
-            </linearGradient>
-          </defs>
-          <ellipse cx="90" cy="215" rx="55" ry="5" fill="rgba(0,0,0,0.5)"/>
-          <path d="M108 165 L112 208 Q112 213 108 213 L105 213 Q101 213 102 208 L104 165 Z" fill="#2d0808"/>
-          <path d="M45 165 Q30 152 28 128 Q26 105 38 88 Q52 70 75 64 Q95 58 115 62 Q135 66 144 88 Q150 108 147 130 Q143 150 132 162 L45 165 Z" fill="url(#p1g)"/>
-          <path d="M85 63 Q110 60 130 76 Q148 92 149 115" stroke="rgba(201,168,76,0.3)" stroke-width="12" fill="none" stroke-linecap="round"/>
-          <path d="M52 148 Q85 142 112 146" stroke="#C9A84C" stroke-width="2" fill="none"/>
-          <rect x="84" y="140" width="10" height="8" rx="1.5" fill="#C9A84C" opacity="0.9"/>
-        </svg>
-      </div>
-      <div class="product-card-info">
-        <div class="product-name">La Nuit</div>
-        <div class="product-category">Foldable Stiletto — Oxblood</div>
-      </div>
-      <div class="product-card-overlay"></div>
+  <!-- Product 1 -->
+  <div class="product-card">
+    <div class="product-card-bg pc-1"></div>
+    <div class="product-shoe-svg">
+      <img src="assets/heels.png" alt="Heels" class="product-img">
     </div>
-
-    <!-- Product 2 -->
-    <div class="product-card">
-      <div class="product-card-bg pc-2"></div>
-      <div class="product-shoe-svg">
-        <svg width="180" height="220" viewBox="0 0 180 220" fill="none">
-          <defs>
-            <linearGradient id="p2g" x1="0" y1="1" x2="1" y2="0">
-              <stop offset="0%" stop-color="#2a2a1e"/>
-              <stop offset="100%" stop-color="#1a1a12"/>
-            </linearGradient>
-          </defs>
-          <ellipse cx="90" cy="215" rx="55" ry="5" fill="rgba(0,0,0,0.5)"/>
-          <!-- Boot shaft -->
-          <path d="M58 165 L58 70 Q58 52 75 50 L105 50 Q122 52 122 70 L122 165 Z" fill="url(#p2g)"/>
-          <!-- Boot top fold -->
-          <path d="M56 70 Q90 60 124 70" stroke="#C9A84C" stroke-width="2" fill="none" opacity="0.7"/>
-          <path d="M60 80 Q90 72 120 80" stroke="rgba(201,168,76,0.3)" stroke-width="1" fill="none"/>
-          <!-- Sole -->
-          <path d="M40 165 Q35 170 38 178 L140 178 L122 165 Z" fill="#0a0a0a"/>
-          <!-- Ankle detail -->
-          <rect x="70" y="130" width="40" height="3" rx="1" fill="#C9A84C" opacity="0.6"/>
-          <rect x="76" y="110" width="28" height="2" rx="1" fill="rgba(201,168,76,0.3)"/>
-          <!-- Heel -->
-          <path d="M105 178 L108 210 L112 210 L109 178 Z" fill="#1a1a12"/>
-        </svg>
-      </div>
-      <div class="product-card-info">
-        <div class="product-name">Ombra</div>
-        <div class="product-category">Convertible Boot — Midnight</div>
-      </div>
-      <div class="product-card-overlay"></div>
+    <div class="product-card-info">
+      <div class="product-name">La Nuit</div>
+      <div class="product-category">Foldable Stiletto — Oxblood</div>
     </div>
-
-    <!-- Product 3 -->
-    <div class="product-card">
-      <div class="product-card-bg pc-3"></div>
-      <div class="product-shoe-svg">
-        <svg width="180" height="220" viewBox="0 0 180 220" fill="none">
-          <defs>
-            <linearGradient id="p3g" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#C9A84C" stop-opacity="0.3"/>
-              <stop offset="100%" stop-color="#8a6c22" stop-opacity="0.5"/>
-            </linearGradient>
-          </defs>
-          <ellipse cx="90" cy="215" rx="55" ry="5" fill="rgba(0,0,0,0.4)"/>
-          <!-- Mule base -->
-          <path d="M45 165 Q30 152 30 128 Q30 104 50 88 Q70 72 100 70 Q130 68 148 88 Q162 104 158 130 Q154 152 138 162 L45 165 Z" fill="#231a0e" stroke="rgba(201,168,76,0.2)" stroke-width="0.5"/>
-          <!-- Open toe detail -->
-          <path d="M30 128 Q28 110 36 96 Q50 75 75 68" stroke="rgba(201,168,76,0.15)" stroke-width="10" fill="none" stroke-linecap="round"/>
-          <!-- Strap -->
-          <path d="M58 120 Q100 108 142 120" stroke="#C9A84C" stroke-width="3.5" fill="none" stroke-linecap="round"/>
-          <path d="M62 128 Q100 117 138 128" stroke="rgba(201,168,76,0.4)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-          <!-- Buckle -->
-          <rect x="94" y="112" width="12" height="10" rx="2" fill="#C9A84C"/>
-          <rect x="99" y="114" width="2" height="6" rx="1" fill="#231a0e"/>
-          <!-- Block heel -->
-          <path d="M105 165 L105 200 L125 200 L125 165 Z" fill="#1a1208"/>
-          <rect x="100" y="197" width="30" height="5" rx="1" fill="#C9A84C" opacity="0.5"/>
-        </svg>
-      </div>
-      <div class="product-card-info">
-        <div class="product-name">Solstice</div>
-        <div class="product-category">Modular Mule — Gold</div>
-      </div>
-      <div class="product-card-overlay"></div>
-    </div>
+    <div class="product-card-overlay"></div>
   </div>
+
+  <!-- Product 2 -->
+  <div class="product-card">
+    <div class="product-card-bg pc-2"></div>
+    <div class="product-shoe-svg">
+      <img src="assets/boots.png" alt="Boots" class="product-img">
+    </div>
+    <div class="product-card-info">
+      <div class="product-name">Ombra</div>
+      <div class="product-category">Convertible Boot — Midnight</div>
+    </div>
+    <div class="product-card-overlay"></div>
+  </div>
+
+  <!-- Product 3 -->
+  <div class="product-card">
+    <div class="product-card-bg pc-3"></div>
+    <div class="product-shoe-svg">
+      <img src="assets/boots-gif.webp" alt="Animated Boots" class="product-img">
+    </div>
+    <div class="product-card-info">
+      <div class="product-name">Solstice</div>
+      <div class="product-category">Modular Mule — Gold</div>
+    </div>
+    <div class="product-card-overlay"></div>
+  </div>
+
+</div>
 </section>
 
 <!-- PHILOSOPHY -->
