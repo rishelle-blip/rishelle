@@ -39,6 +39,11 @@ body {
   cursor: none;
 }
 
+.product-white .product-shoe-svg {
+  background: #ffffff;
+  padding: 2rem;
+}
+
 .product-img {
   width: 180px;
   height: 220px;
@@ -411,11 +416,36 @@ section {
 }
 
 .shoe-svg-wrap {
+  position: relative;
   opacity: 0;
   transform: translateX(-40px);
   transition: opacity 1.5s ease 0.3s, transform 1.5s ease 0.3s;
 }
-.shoe-svg-wrap.in-view { opacity: 1; transform: translateX(0); }
+
+.shoe-svg-wrap.in-view {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.shoe-svg-wrap::after {
+  content: "";
+  position: absolute;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 260px;
+  height: 80px;
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255,0.96),
+    rgba(245,240,232,0.85)
+  );
+  border-radius: 55% 45% 50% 50%;
+  box-shadow:
+    0 25px 40px rgba(0,0,0,0.35),
+    inset 0 2px 4px rgba(255,255,255,0.9);
+  z-index: -1;
+}
 
 .concept-content {
   padding: 8rem 5rem;
@@ -1241,7 +1271,7 @@ footer {
   </div>
 
   <!-- Product 3 -->
-  <div class="product-card">
+  <div class="product-card product-white">
     <div class="product-card-bg pc-3"></div>
     <div class="product-shoe-svg">
       <img src="assets/boots-gif.webp" alt="Animated Boots" class="product-img">
