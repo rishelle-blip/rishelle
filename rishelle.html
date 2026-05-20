@@ -1,0 +1,1519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RISHELLE — Luxury That Moves With Her</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --cream: #F5F0E8;
+  --bone: #E8DDD0;
+  --parchment: #D4C5B0;
+  --black: #0A0A0A;
+  --charcoal: #1A1A1A;
+  --oxblood: #6B1F1F;
+  --oxblood-deep: #4A1010;
+  --gold: #C9A84C;
+  --gold-light: #E8C96B;
+  --white-soft: #FAF7F2;
+
+  --serif: 'Playfair Display', 'Georgia', serif;
+  --serif-alt: 'Cormorant Garamond', 'Georgia', serif;
+  --sans: 'Jost', 'Helvetica Neue', sans-serif;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--black);
+  color: var(--cream);
+  font-family: var(--sans);
+  font-weight: 300;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+/* CUSTOM CURSOR */
+.cursor {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background: var(--gold);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease;
+}
+.cursor-ring {
+  position: fixed;
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(201,168,76,0.5);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: transform 0.15s ease, width 0.3s ease, height 0.3s ease, opacity 0.3s ease;
+}
+.cursor-ring.expand { width: 60px; height: 60px; opacity: 0.3; }
+
+/* NAV */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 2rem 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  mix-blend-mode: normal;
+  transition: background 0.8s ease, padding 0.5s ease;
+}
+nav.scrolled {
+  background: rgba(10,10,10,0.92);
+  backdrop-filter: blur(12px);
+  padding: 1.2rem 4rem;
+  border-bottom: 1px solid rgba(201,168,76,0.15);
+}
+.nav-logo {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  font-weight: 400;
+  letter-spacing: 0.3em;
+  color: var(--cream);
+  text-decoration: none;
+  opacity: 0;
+  animation: fadeDown 1.2s ease 0.3s forwards;
+}
+.nav-links {
+  display: flex;
+  gap: 3rem;
+  list-style: none;
+  opacity: 0;
+  animation: fadeDown 1.2s ease 0.5s forwards;
+}
+.nav-links a {
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--bone);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.nav-links a:hover { color: var(--gold); }
+
+/* HERO */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--black);
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 30% 60%, rgba(107,31,31,0.12) 0%, transparent 60%),
+    radial-gradient(ellipse at 70% 30%, rgba(201,168,76,0.04) 0%, transparent 50%),
+    linear-gradient(180deg, #0A0A0A 0%, #111008 50%, #0A0A0A 100%);
+  z-index: 0;
+}
+
+/* City silhouette */
+.city-silhouette {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 45%;
+  z-index: 1;
+  opacity: 0.06;
+  background: 
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 400' preserveAspectRatio='none'%3E%3Cpath fill='%23F5F0E8' d='M0,400 L0,280 L20,280 L20,200 L40,200 L40,240 L60,240 L60,160 L80,160 L80,180 L100,180 L100,120 L110,120 L110,80 L120,80 L120,120 L130,120 L130,180 L150,180 L150,220 L170,220 L170,160 L185,160 L185,100 L195,100 L195,60 L205,60 L205,100 L215,100 L215,160 L235,160 L235,200 L255,200 L255,240 L275,240 L275,200 L285,200 L285,140 L300,140 L300,80 L315,80 L315,140 L330,140 L330,200 L345,200 L345,240 L365,240 L365,180 L380,180 L380,120 L390,120 L390,60 L395,40 L400,60 L405,120 L415,120 L415,180 L430,180 L430,220 L450,220 L450,180 L465,180 L465,130 L475,130 L475,90 L490,90 L490,130 L505,130 L505,180 L520,180 L520,220 L540,220 L540,200 L555,200 L555,150 L570,150 L570,100 L580,100 L580,70 L590,70 L590,100 L600,100 L600,150 L615,150 L615,200 L635,200 L635,240 L655,240 L655,200 L665,200 L665,160 L675,160 L675,100 L685,100 L685,60 L695,60 L695,100 L705,100 L705,160 L720,160 L720,200 L740,200 L740,240 L760,240 L760,200 L775,200 L775,150 L790,150 L790,110 L800,110 L800,80 L810,80 L810,110 L820,110 L820,150 L835,150 L835,200 L855,200 L855,240 L875,240 L875,200 L885,200 L885,160 L895,160 L895,130 L905,130 L905,160 L915,160 L915,200 L930,200 L930,240 L945,240 L945,200 L955,200 L955,160 L965,160 L965,120 L975,120 L975,90 L985,90 L985,120 L995,120 L995,160 L1010,160 L1010,200 L1025,200 L1025,240 L1045,240 L1045,200 L1060,200 L1060,160 L1070,160 L1070,110 L1080,110 L1080,70 L1090,70 L1090,110 L1100,110 L1100,160 L1115,160 L1115,200 L1135,200 L1135,240 L1155,240 L1155,200 L1165,200 L1165,150 L1175,150 L1175,100 L1185,100 L1185,150 L1195,150 L1195,200 L1210,200 L1210,240 L1230,240 L1230,200 L1245,200 L1245,160 L1260,160 L1260,200 L1275,200 L1275,240 L1300,240 L1300,200 L1320,200 L1320,240 L1350,240 L1350,280 L1370,280 L1370,240 L1400,240 L1400,280 L1440,280 L1440,400 Z'/%3E%3C/svg%3E") no-repeat bottom center / 100% auto;
+}
+
+/* Floating light particles */
+.particles {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+}
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  animation: drift linear infinite;
+}
+
+@keyframes drift {
+  0% { transform: translateY(100vh) translateX(0); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 0.6; }
+  100% { transform: translateY(-10vh) translateX(30px); opacity: 0; }
+}
+
+/* Narrative lines */
+.narrative-line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  padding: 8rem 2rem 2rem;
+  text-align: center;
+}
+
+.story-text {
+  font-family: var(--serif-alt);
+  font-size: clamp(1.1rem, 2vw, 1.6rem);
+  font-weight: 300;
+  font-style: italic;
+  color: rgba(245,240,232,0.65);
+  letter-spacing: 0.05em;
+  line-height: 1.8;
+  max-width: 700px;
+  opacity: 0;
+  transform: translateY(30px);
+}
+.story-text.visible { animation: revealText 1.8s cubic-bezier(0.25,0.46,0.45,0.94) forwards; }
+@keyframes revealText {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.divider-line {
+  width: 1px;
+  height: 0;
+  background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+  margin: 2.5rem auto;
+  opacity: 0;
+  transition: height 1.5s ease, opacity 1s ease;
+}
+.divider-line.visible { height: 80px; opacity: 1; }
+
+.brand-reveal {
+  font-family: var(--serif);
+  font-size: clamp(4rem, 12vw, 9rem);
+  font-weight: 400;
+  letter-spacing: 0.25em;
+  color: var(--cream);
+  opacity: 0;
+  transform: scale(0.9) translateY(20px);
+  line-height: 1;
+}
+.brand-reveal.visible { animation: brandReveal 2s cubic-bezier(0.16,1,0.3,1) forwards; }
+@keyframes brandReveal {
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.tagline-reveal {
+  font-family: var(--sans);
+  font-size: clamp(0.6rem, 1.2vw, 0.85rem);
+  font-weight: 200;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0;
+  margin-top: 1.5rem;
+}
+.tagline-reveal.visible { animation: fadeUp 1.5s ease 0.5s forwards; }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+
+.cta-btn {
+  display: inline-block;
+  margin-top: 3.5rem;
+  padding: 1.2rem 3.5rem;
+  border: 1px solid rgba(201,168,76,0.6);
+  font-family: var(--sans);
+  font-size: 0.65rem;
+  font-weight: 400;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--cream);
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transition: color 0.4s ease, border-color 0.4s ease;
+}
+.cta-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--oxblood);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.5s cubic-bezier(0.76,0,0.24,1);
+  z-index: -1;
+}
+.cta-btn:hover::before { transform: scaleX(1); transform-origin: left; }
+.cta-btn:hover { border-color: var(--oxblood); }
+.cta-btn.visible { animation: fadeUp 1.5s ease 1s forwards; }
+
+/* Scroll indicator */
+.scroll-indicator {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  opacity: 0;
+  animation: fadeUp 2s ease 2s forwards;
+}
+.scroll-indicator span {
+  font-family: var(--sans);
+  font-size: 0.55rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(245,240,232,0.3);
+}
+.scroll-line {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, var(--gold), transparent);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.4; transform: scaleY(1); }
+  50% { opacity: 1; transform: scaleY(1.2); }
+}
+
+/* SECTION BASE */
+section {
+  position: relative;
+  overflow: hidden;
+}
+
+/* MANIFESTO SECTION */
+.manifesto {
+  background: var(--black);
+  padding: 14rem 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.section-eyebrow {
+  font-family: var(--sans);
+  font-size: 0.6rem;
+  font-weight: 400;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 3rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+.section-eyebrow.in-view { opacity: 1; transform: translateY(0); }
+
+.manifesto-statement {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 5vw, 4.5rem);
+  font-weight: 400;
+  line-height: 1.25;
+  letter-spacing: 0.02em;
+  color: var(--cream);
+  max-width: 900px;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1.2s ease 0.2s, transform 1.2s ease 0.2s;
+}
+.manifesto-statement.in-view { opacity: 1; transform: translateY(0); }
+.manifesto-statement em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.manifesto-body {
+  font-family: var(--sans);
+  font-size: clamp(0.85rem, 1.5vw, 1rem);
+  font-weight: 200;
+  line-height: 2;
+  letter-spacing: 0.05em;
+  color: rgba(245,240,232,0.5);
+  max-width: 560px;
+  margin-top: 3rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1.2s ease 0.4s, transform 1.2s ease 0.4s;
+}
+.manifesto-body.in-view { opacity: 1; transform: translateY(0); }
+
+.gold-accent-line {
+  width: 80px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--gold), transparent);
+  margin: 4rem auto;
+  opacity: 0;
+  transition: opacity 1.5s ease 0.3s, width 1.5s ease 0.3s;
+}
+.gold-accent-line.in-view { opacity: 1; width: 120px; }
+
+/* CONCEPT SECTION */
+.concept {
+  background: var(--charcoal);
+  padding: 10rem 0;
+}
+
+.concept-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 90vh;
+}
+
+.concept-visual {
+  position: relative;
+  overflow: hidden;
+  background: var(--black);
+}
+
+/* Animated shoe silhouette */
+.shoe-canvas {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.shoe-svg-wrap {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 1.5s ease 0.3s, transform 1.5s ease 0.3s;
+}
+.shoe-svg-wrap.in-view { opacity: 1; transform: translateX(0); }
+
+.concept-content {
+  padding: 8rem 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.concept-heading {
+  font-family: var(--serif);
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 0.03em;
+  color: var(--cream);
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 1.2s ease, transform 1.2s ease;
+}
+.concept-heading.in-view { opacity: 1; transform: translateX(0); }
+
+.concept-features {
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.feature-item {
+  display: grid;
+  grid-template-columns: 1px 1fr;
+  gap: 2rem;
+  padding: 2.5rem 0;
+  border-bottom: 1px solid rgba(245,240,232,0.08);
+  opacity: 0;
+  transform: translateX(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  cursor: default;
+}
+.feature-item:first-child { border-top: 1px solid rgba(245,240,232,0.08); }
+.feature-item.in-view { opacity: 1; transform: translateX(0); }
+.feature-item:nth-child(1).in-view { transition-delay: 0.1s; }
+.feature-item:nth-child(2).in-view { transition-delay: 0.2s; }
+.feature-item:nth-child(3).in-view { transition-delay: 0.3s; }
+.feature-item:nth-child(4).in-view { transition-delay: 0.4s; }
+
+.feature-line {
+  width: 1px;
+  background: var(--gold);
+  height: 0;
+  transition: height 1s ease;
+  align-self: stretch;
+}
+.feature-item.in-view .feature-line { height: 100%; }
+
+.feature-text {}
+.feature-name {
+  font-family: var(--serif-alt);
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: var(--cream);
+  letter-spacing: 0.04em;
+  margin-bottom: 0.5rem;
+}
+.feature-desc {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  font-weight: 200;
+  color: rgba(245,240,232,0.4);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  line-height: 1.6;
+}
+
+/* EDITORIAL STRIP */
+.editorial {
+  background: var(--cream);
+  color: var(--black);
+  padding: 12rem 4rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.editorial::before {
+  content: 'RISHELLE';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--serif);
+  font-size: 20vw;
+  font-weight: 400;
+  color: rgba(10,10,10,0.04);
+  letter-spacing: 0.15em;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.editorial-quote {
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 4vw, 3.5rem);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.4;
+  color: var(--black);
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1.2s ease, transform 1.2s ease;
+}
+.editorial-quote.in-view { opacity: 1; transform: translateY(0); }
+
+.editorial-attr {
+  font-family: var(--sans);
+  font-size: 0.65rem;
+  font-weight: 400;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--oxblood);
+  margin-top: 3rem;
+  position: relative;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 1s ease 0.4s;
+}
+.editorial-attr.in-view { opacity: 1; }
+
+/* COLLECTIONS PREVIEW */
+.collections {
+  background: var(--black);
+  padding: 12rem 4rem;
+}
+
+.collections-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 6rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.collections-title {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 400;
+  color: var(--cream);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+.collections-title.in-view { opacity: 1; transform: translateY(0); }
+
+.collections-link {
+  font-family: var(--sans);
+  font-size: 0.65rem;
+  font-weight: 400;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(201,168,76,0.3);
+  padding-bottom: 4px;
+  transition: border-color 0.3s ease;
+  opacity: 0;
+  transition: opacity 1s ease 0.3s;
+}
+.collections-link.in-view { opacity: 1; }
+.collections-link:hover { border-color: var(--gold); }
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.product-card {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 3/4;
+  background: var(--charcoal);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.product-card.in-view { opacity: 1; transform: translateY(0); }
+.product-card:nth-child(1).in-view { transition-delay: 0s; }
+.product-card:nth-child(2).in-view { transition-delay: 0.15s; }
+.product-card:nth-child(3).in-view { transition-delay: 0.3s; }
+
+.product-card-bg {
+  position: absolute;
+  inset: 0;
+  transition: transform 0.8s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+.product-card:hover .product-card-bg { transform: scale(1.05); }
+
+.pc-1 { background: linear-gradient(135deg, #1a0d0d 0%, #2d1515 40%, #1a0a0a 100%); }
+.pc-2 { background: linear-gradient(135deg, #0d0d0a 0%, #1e1e14 50%, #0a0a0a 100%); }
+.pc-3 { background: linear-gradient(135deg, #100d08 0%, #231a0e 50%, #0a0a0a 100%); }
+
+.product-shoe-svg {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+}
+
+.product-card-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2rem;
+  background: linear-gradient(to top, rgba(10,10,10,0.9) 0%, transparent 100%);
+  transform: translateY(10px);
+  transition: transform 0.4s ease;
+}
+.product-card:hover .product-card-info { transform: translateY(0); }
+
+.product-name {
+  font-family: var(--serif-alt);
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--cream);
+  letter-spacing: 0.06em;
+}
+.product-category {
+  font-family: var(--sans);
+  font-size: 0.6rem;
+  font-weight: 300;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-top: 0.3rem;
+}
+
+.product-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(107,31,31,0.0);
+  transition: background 0.4s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.product-card:hover .product-card-overlay { background: rgba(107,31,31,0.08); }
+
+/* PHILOSOPHY */
+.philosophy {
+  background: var(--oxblood-deep);
+  padding: 14rem 4rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.philosophy::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(ellipse at center, rgba(201,168,76,0.06) 0%, transparent 60%);
+  animation: rotateSlow 30s linear infinite;
+}
+@keyframes rotateSlow { to { transform: rotate(360deg); } }
+
+.philosophy-number {
+  font-family: var(--serif);
+  font-size: 15vw;
+  font-weight: 400;
+  color: rgba(245,240,232,0.04);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  letter-spacing: -0.05em;
+  white-space: nowrap;
+}
+
+.philosophy-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.philosophy-heading {
+  font-family: var(--serif);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--cream);
+  line-height: 1.3;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1.2s ease, transform 1.2s ease;
+}
+.philosophy-heading.in-view { opacity: 1; transform: translateY(0); }
+
+.philosophy-sub {
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  font-weight: 200;
+  letter-spacing: 0.15em;
+  color: rgba(245,240,232,0.5);
+  margin-top: 2.5rem;
+  line-height: 2;
+  opacity: 0;
+  transition: opacity 1s ease 0.4s;
+}
+.philosophy-sub.in-view { opacity: 1; }
+
+.philosophy-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4rem;
+  margin-top: 8rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s ease 0.6s, transform 1s ease 0.6s;
+}
+.philosophy-stats.in-view { opacity: 1; transform: translateY(0); }
+
+.stat-item { text-align: center; }
+.stat-num {
+  font-family: var(--serif);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 400;
+  color: var(--gold);
+  display: block;
+}
+.stat-label {
+  font-family: var(--sans);
+  font-size: 0.6rem;
+  font-weight: 300;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(245,240,232,0.4);
+  margin-top: 0.5rem;
+  display: block;
+}
+
+/* ATELIER SECTION */
+.atelier {
+  background: var(--cream);
+  color: var(--black);
+  padding: 14rem 4rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8rem;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.atelier-heading {
+  font-family: var(--serif);
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--black);
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 1.2s ease, transform 1.2s ease;
+}
+.atelier-heading.in-view { opacity: 1; transform: translateX(0); }
+
+.atelier-heading span {
+  display: block;
+  font-style: italic;
+  color: var(--oxblood);
+}
+
+.atelier-body {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 1.2s ease 0.2s, transform 1.2s ease 0.2s;
+}
+.atelier-body.in-view { opacity: 1; transform: translateX(0); }
+
+.atelier-para {
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  font-weight: 300;
+  line-height: 2.2;
+  color: rgba(10,10,10,0.65);
+  letter-spacing: 0.03em;
+  margin-bottom: 2rem;
+}
+
+.atelier-cta {
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 1.2rem 3rem;
+  background: var(--black);
+  font-family: var(--sans);
+  font-size: 0.65rem;
+  font-weight: 400;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--cream);
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  transition: color 0.4s ease;
+}
+.atelier-cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--oxblood);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.5s cubic-bezier(0.76,0,0.24,1);
+}
+.atelier-cta:hover::before { transform: scaleX(1); transform-origin: left; }
+.atelier-cta span { position: relative; z-index: 1; }
+
+/* FOOTER */
+footer {
+  background: var(--black);
+  border-top: 1px solid rgba(245,240,232,0.08);
+  padding: 6rem 4rem 3rem;
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 4rem;
+  margin-bottom: 6rem;
+}
+
+.footer-brand {
+  font-family: var(--serif);
+  font-size: 2rem;
+  font-weight: 400;
+  letter-spacing: 0.3em;
+  color: var(--cream);
+  display: block;
+  margin-bottom: 1.5rem;
+}
+.footer-tagline {
+  font-family: var(--serif-alt);
+  font-style: italic;
+  font-size: 0.9rem;
+  color: rgba(245,240,232,0.35);
+  line-height: 1.8;
+}
+
+.footer-col-title {
+  font-family: var(--sans);
+  font-size: 0.6rem;
+  font-weight: 400;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 2rem;
+}
+.footer-links { list-style: none; }
+.footer-links li { margin-bottom: 0.8rem; }
+.footer-links a {
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  font-weight: 200;
+  color: rgba(245,240,232,0.4);
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  transition: color 0.3s ease;
+}
+.footer-links a:hover { color: var(--cream); }
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(245,240,232,0.06);
+  padding-top: 2rem;
+}
+.footer-copy {
+  font-family: var(--sans);
+  font-size: 0.65rem;
+  font-weight: 200;
+  color: rgba(245,240,232,0.2);
+  letter-spacing: 0.1em;
+}
+
+/* MARQUEE */
+.marquee-wrap {
+  background: var(--charcoal);
+  padding: 2rem 0;
+  overflow: hidden;
+  border-top: 1px solid rgba(245,240,232,0.06);
+  border-bottom: 1px solid rgba(245,240,232,0.06);
+}
+.marquee-track {
+  display: flex;
+  gap: 0;
+  animation: marqueeScroll 30s linear infinite;
+  white-space: nowrap;
+}
+.marquee-item {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 0 2rem;
+  flex-shrink: 0;
+}
+.marquee-text {
+  font-family: var(--serif-alt);
+  font-size: 1.1rem;
+  font-style: italic;
+  color: rgba(245,240,232,0.25);
+  letter-spacing: 0.1em;
+}
+.marquee-dot {
+  width: 4px;
+  height: 4px;
+  background: var(--gold);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+@keyframes marqueeScroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* Horizontal rule gold */
+.hr-gold {
+  width: 40px;
+  height: 1px;
+  background: var(--gold);
+  margin: 3rem auto;
+  opacity: 0;
+  transition: opacity 1s ease 0.5s, width 1s ease 0.5s;
+}
+.hr-gold.in-view { opacity: 1; width: 60px; }
+
+/* Responsive */
+@media (max-width: 900px) {
+  nav { padding: 1.5rem 2rem; }
+  .concept-grid { grid-template-columns: 1fr; }
+  .concept-visual { height: 50vh; }
+  .concept-content { padding: 4rem 2rem; }
+  .product-grid { grid-template-columns: repeat(2, 1fr); }
+  .product-grid .product-card:nth-child(3) { display: none; }
+  .atelier { grid-template-columns: 1fr; gap: 3rem; padding: 8rem 2rem; }
+  .philosophy-stats { grid-template-columns: 1fr; gap: 2rem; }
+  .footer-top { grid-template-columns: 1fr 1fr; gap: 3rem; }
+  .manifesto { padding: 8rem 2rem; }
+  .collections { padding: 8rem 2rem; }
+  .collections-header { flex-direction: column; align-items: flex-start; gap: 1rem; margin-bottom: 3rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- Custom cursor -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- Navigation -->
+<nav id="mainNav">
+  <a href="#" class="nav-logo">RISHELLE</a>
+  <ul class="nav-links">
+    <li><a href="#concept">Collection</a></li>
+    <li><a href="#atelier">Atelier</a></li>
+    <li><a href="#philosophy">Our Story</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-bg"></div>
+  <div class="city-silhouette"></div>
+
+  <!-- Particles -->
+  <div class="particles" id="particles"></div>
+
+  <div class="narrative-line" id="narrativeContainer">
+    <!-- Stage 1: Opening story -->
+    <p class="story-text" id="stage1">
+      "She carried an extra pair everywhere she went."
+    </p>
+
+    <div class="divider-line" id="divider1"></div>
+
+    <!-- Stage 2: The choice -->
+    <p class="story-text" id="stage2" style="opacity:0; transition: none; transform: none;">
+      She was expected to choose.<br>
+      <span style="color: rgba(245,240,232,0.4);">Comfort or elegance. Movement or beauty.</span>
+    </p>
+
+    <div class="divider-line" id="divider2" style="margin:0; height:0; opacity:0;"></div>
+
+    <!-- Stage 3: Brand reveal -->
+    <h1 class="brand-reveal" id="brandReveal">RISHELLE</h1>
+    <p class="tagline-reveal" id="taglineReveal">Luxury that moves with her</p>
+    <a href="#concept" class="cta-btn" id="ctaBtn">Enter the Atelier</a>
+  </div>
+
+  <div class="scroll-indicator">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- MANIFESTO -->
+<section class="manifesto">
+  <p class="section-eyebrow">The Question We Asked</p>
+  <h2 class="manifesto-statement">
+    Why must a woman choose between <em>beauty</em> and <em>freedom</em>?
+  </h2>
+  <div class="gold-accent-line"></div>
+  <p class="manifesto-body">
+    RISHELLE was born from a simple observation: the most extraordinary women we know move through the world with purpose, grace, and relentless momentum. Their footwear should do the same.
+  </p>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <div class="marquee-item"><span class="marquee-text">Foldable Heels</span><span class="marquee-dot"></span></div>
+    <div class="marquee-item"><span class="marquee-text">Convertible Silhouettes</span><span class="marquee-dot"></span></div>
+    <div class="marquee-item"><span class="marquee-text">Modular Architecture</span><span class="marquee-dot"></span></div>
+    <div class="marquee-item"><span class="marquee-text">Italian Craftsmanship</span><span class="marquee-dot"></span></div>
+    <div class="marquee-item"><span class="marquee-text">Transformable Design</span><span class="marquee-dot"></span></div>
+    <div class="marquee-item"><span class="marquee-text">Foldable Heels</span><span class="marquee-dot"></span></div>
+    <div class="marquee-item"><span class="marquee-text">Convertible Silhouettes</span><span class="marquee-dot"></span></div>
+    <div class="marquee-item"><span class="marquee-text">Modular Architecture</span><span class="marquee-dot"></span></div>
+    <div class="marquee-item"><span class="marquee-text">Italian Craftsmanship</span><span class="marquee-dot"></span></div>
+    <div class="marquee-item"><span class="marquee-text">Transformable Design</span><span class="marquee-dot"></span></div>
+    <div class="marquee-item"><span class="marquee-text">Foldable Heels</span><span class="marquee-dot"></span></div>
+    <div class="marquee-item"><span class="marquee-text">Convertible Silhouettes</span><span class="marquee-dot"></span></div>
+    <div class="marquee-item"><span class="marquee-text">Modular Architecture</span><span class="marquee-dot"></span></div>
+    <div class="marquee-item"><span class="marquee-text">Italian Craftsmanship</span><span class="marquee-dot"></span></div>
+    <div class="marquee-item"><span class="marquee-text">Transformable Design</span><span class="marquee-dot"></span></div>
+  </div>
+</div>
+
+<!-- CONCEPT -->
+<section class="concept" id="concept">
+  <div class="concept-grid">
+    <div class="concept-visual">
+      <div class="shoe-canvas">
+        <div class="shoe-svg-wrap">
+          <!-- Elegant heel SVG illustration -->
+          <svg width="320" height="400" viewBox="0 0 320 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Main shoe body - elegant stiletto -->
+            <defs>
+              <linearGradient id="shoeGrad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#6B1F1F" stop-opacity="0.9"/>
+                <stop offset="60%" stop-color="#4A1010" stop-opacity="0.95"/>
+                <stop offset="100%" stop-color="#2d0808" stop-opacity="1"/>
+              </linearGradient>
+              <linearGradient id="goldGrad" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#C9A84C"/>
+                <stop offset="100%" stop-color="#E8C96B"/>
+              </linearGradient>
+              <linearGradient id="shimmer" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="rgba(201,168,76,0.3)"/>
+                <stop offset="50%" stop-color="rgba(201,168,76,0.08)"/>
+                <stop offset="100%" stop-color="rgba(201,168,76,0)"/>
+              </linearGradient>
+            </defs>
+            
+            <!-- Shadow -->
+            <ellipse cx="155" cy="390" rx="90" ry="8" fill="rgba(0,0,0,0.4)"/>
+            
+            <!-- Heel -->
+            <path d="M190 290 L196 375 Q196 383 190 383 L185 383 Q179 383 180 375 L183 290 Z" fill="url(#shoeGrad)"/>
+            <!-- Heel gold accent -->
+            <rect x="180" y="365" width="16" height="4" rx="2" fill="url(#goldGrad)" opacity="0.9"/>
+            
+            <!-- Sole -->
+            <path d="M80 290 Q75 295 78 305 L183 308 L196 290 Z" fill="#1a0505"/>
+            <path d="M78 305 Q76 315 85 318 L183 315 L183 308 Z" fill="url(#shoeGrad)" opacity="0.7"/>
+            
+            <!-- Main upper body -->
+            <path d="M85 290 Q60 265 55 220 Q50 180 70 150 Q90 120 130 108 Q155 100 185 102 Q220 105 235 130 Q250 158 245 195 Q240 230 225 258 Q210 278 196 290 Z" fill="url(#shoeGrad)"/>
+            
+            <!-- Highlight/sheen -->
+            <path d="M140 108 Q170 100 200 115 Q225 130 235 160 Q245 190 238 218" stroke="url(#shimmer)" stroke-width="20" fill="none" stroke-linecap="round" opacity="0.6"/>
+            
+            <!-- Toe area detail -->
+            <path d="M55 220 Q52 190 65 165 Q80 138 105 122" stroke="rgba(201,168,76,0.2)" stroke-width="1" fill="none"/>
+            
+            <!-- Gold ankle strap -->
+            <path d="M92 262 Q140 252 196 260" stroke="url(#goldGrad)" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <path d="M92 268 Q140 258 196 266" stroke="url(#goldGrad)" stroke-width="1" fill="none" stroke-linecap="round" opacity="0.5"/>
+            
+            <!-- Gold buckle -->
+            <rect x="148" y="252" width="14" height="10" rx="2" fill="url(#goldGrad)" opacity="0.9"/>
+            <rect x="154" y="254" width="2" height="6" rx="1" fill="#4A1010"/>
+            
+            <!-- Pointed toe highlight -->
+            <path d="M55 228 Q54 218 58 210" stroke="rgba(245,240,232,0.15)" stroke-width="4" fill="none" stroke-linecap="round"/>
+            
+            <!-- Second shoe (faded, transforming) -->
+            <g opacity="0.25" transform="translate(20, 20) rotate(-15, 160, 250)">
+              <path d="M105 278 Q85 265 80 240 Q76 215 90 195 Q108 172 140 165 Q165 160 188 168 Q210 176 218 200 Q224 220 218 240 Q212 258 202 270 L105 278 Z" fill="var(--cream, #F5F0E8)"/>
+              <path d="M105 278 Q90 282 85 290 L202 285 L202 270 Z" fill="rgba(245,240,232,0.5)"/>
+              <path d="M158 285 L162 340 Q162 348 158 348 L154 348 Q150 348 150 340 L152 285 Z" fill="rgba(245,240,232,0.3)"/>
+            </g>
+            
+            <!-- Transformation indicator dots -->
+            <g opacity="0.6">
+              <circle cx="240" cy="340" r="2" fill="var(--gold, #C9A84C)">
+                <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite"/>
+              </circle>
+              <circle cx="252" cy="328" r="1.5" fill="var(--gold, #C9A84C)">
+                <animate attributeName="opacity" values="0.4;0.9;0.4" dur="2s" begin="0.5s" repeatCount="indefinite"/>
+              </circle>
+              <circle cx="260" cy="314" r="1" fill="var(--gold, #C9A84C)">
+                <animate attributeName="opacity" values="0.2;0.7;0.2" dur="2s" begin="1s" repeatCount="indefinite"/>
+              </circle>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="concept-content">
+      <p class="section-eyebrow" style="text-align:left; margin-bottom:1.5rem;">The Concept</p>
+      <h2 class="concept-heading">
+        One shoe.<br>Every world<br>she inhabits.
+      </h2>
+      <div class="concept-features" style="margin-top:3rem;">
+        <div class="feature-item">
+          <div class="feature-line"></div>
+          <div class="feature-text">
+            <div class="feature-name">Foldable Heels</div>
+            <div class="feature-desc">From stiletto to flat in one motion</div>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-line"></div>
+          <div class="feature-text">
+            <div class="feature-name">Convertible Boots</div>
+            <div class="feature-desc">Ankle to knee. Evening to morning.</div>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-line"></div>
+          <div class="feature-text">
+            <div class="feature-name">Transformable Silhouettes</div>
+            <div class="feature-desc">Interchangeable hardware systems</div>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-line"></div>
+          <div class="feature-text">
+            <div class="feature-name">Living Design</div>
+            <div class="feature-desc">Engineered around real women's lives</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDITORIAL QUOTE -->
+<section class="editorial">
+  <p class="section-eyebrow" style="color:var(--oxblood); letter-spacing:0.5em;">On Beauty</p>
+  <blockquote class="editorial-quote">
+    "She doesn't remove her shoes at the door. She removes the expectation that she must choose between arriving beautifully and leaving freely."
+  </blockquote>
+  <p class="editorial-attr">— The RISHELLE Manifesto</p>
+</section>
+
+<!-- COLLECTIONS -->
+<section class="collections" id="collections">
+  <div class="collections-header">
+    <h2 class="collections-title">Debut Collection</h2>
+    <a href="#" class="collections-link">View All Pieces →</a>
+  </div>
+  <div class="product-grid">
+
+    <!-- Product 1 -->
+    <div class="product-card">
+      <div class="product-card-bg pc-1"></div>
+      <div class="product-shoe-svg">
+        <svg width="180" height="220" viewBox="0 0 180 220" fill="none">
+          <defs>
+            <linearGradient id="p1g" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#8B2929"/>
+              <stop offset="100%" stop-color="#4A1010"/>
+            </linearGradient>
+          </defs>
+          <ellipse cx="90" cy="215" rx="55" ry="5" fill="rgba(0,0,0,0.5)"/>
+          <path d="M108 165 L112 208 Q112 213 108 213 L105 213 Q101 213 102 208 L104 165 Z" fill="#2d0808"/>
+          <path d="M45 165 Q30 152 28 128 Q26 105 38 88 Q52 70 75 64 Q95 58 115 62 Q135 66 144 88 Q150 108 147 130 Q143 150 132 162 L45 165 Z" fill="url(#p1g)"/>
+          <path d="M85 63 Q110 60 130 76 Q148 92 149 115" stroke="rgba(201,168,76,0.3)" stroke-width="12" fill="none" stroke-linecap="round"/>
+          <path d="M52 148 Q85 142 112 146" stroke="#C9A84C" stroke-width="2" fill="none"/>
+          <rect x="84" y="140" width="10" height="8" rx="1.5" fill="#C9A84C" opacity="0.9"/>
+        </svg>
+      </div>
+      <div class="product-card-info">
+        <div class="product-name">La Nuit</div>
+        <div class="product-category">Foldable Stiletto — Oxblood</div>
+      </div>
+      <div class="product-card-overlay"></div>
+    </div>
+
+    <!-- Product 2 -->
+    <div class="product-card">
+      <div class="product-card-bg pc-2"></div>
+      <div class="product-shoe-svg">
+        <svg width="180" height="220" viewBox="0 0 180 220" fill="none">
+          <defs>
+            <linearGradient id="p2g" x1="0" y1="1" x2="1" y2="0">
+              <stop offset="0%" stop-color="#2a2a1e"/>
+              <stop offset="100%" stop-color="#1a1a12"/>
+            </linearGradient>
+          </defs>
+          <ellipse cx="90" cy="215" rx="55" ry="5" fill="rgba(0,0,0,0.5)"/>
+          <!-- Boot shaft -->
+          <path d="M58 165 L58 70 Q58 52 75 50 L105 50 Q122 52 122 70 L122 165 Z" fill="url(#p2g)"/>
+          <!-- Boot top fold -->
+          <path d="M56 70 Q90 60 124 70" stroke="#C9A84C" stroke-width="2" fill="none" opacity="0.7"/>
+          <path d="M60 80 Q90 72 120 80" stroke="rgba(201,168,76,0.3)" stroke-width="1" fill="none"/>
+          <!-- Sole -->
+          <path d="M40 165 Q35 170 38 178 L140 178 L122 165 Z" fill="#0a0a0a"/>
+          <!-- Ankle detail -->
+          <rect x="70" y="130" width="40" height="3" rx="1" fill="#C9A84C" opacity="0.6"/>
+          <rect x="76" y="110" width="28" height="2" rx="1" fill="rgba(201,168,76,0.3)"/>
+          <!-- Heel -->
+          <path d="M105 178 L108 210 L112 210 L109 178 Z" fill="#1a1a12"/>
+        </svg>
+      </div>
+      <div class="product-card-info">
+        <div class="product-name">Ombra</div>
+        <div class="product-category">Convertible Boot — Midnight</div>
+      </div>
+      <div class="product-card-overlay"></div>
+    </div>
+
+    <!-- Product 3 -->
+    <div class="product-card">
+      <div class="product-card-bg pc-3"></div>
+      <div class="product-shoe-svg">
+        <svg width="180" height="220" viewBox="0 0 180 220" fill="none">
+          <defs>
+            <linearGradient id="p3g" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#C9A84C" stop-opacity="0.3"/>
+              <stop offset="100%" stop-color="#8a6c22" stop-opacity="0.5"/>
+            </linearGradient>
+          </defs>
+          <ellipse cx="90" cy="215" rx="55" ry="5" fill="rgba(0,0,0,0.4)"/>
+          <!-- Mule base -->
+          <path d="M45 165 Q30 152 30 128 Q30 104 50 88 Q70 72 100 70 Q130 68 148 88 Q162 104 158 130 Q154 152 138 162 L45 165 Z" fill="#231a0e" stroke="rgba(201,168,76,0.2)" stroke-width="0.5"/>
+          <!-- Open toe detail -->
+          <path d="M30 128 Q28 110 36 96 Q50 75 75 68" stroke="rgba(201,168,76,0.15)" stroke-width="10" fill="none" stroke-linecap="round"/>
+          <!-- Strap -->
+          <path d="M58 120 Q100 108 142 120" stroke="#C9A84C" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+          <path d="M62 128 Q100 117 138 128" stroke="rgba(201,168,76,0.4)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <!-- Buckle -->
+          <rect x="94" y="112" width="12" height="10" rx="2" fill="#C9A84C"/>
+          <rect x="99" y="114" width="2" height="6" rx="1" fill="#231a0e"/>
+          <!-- Block heel -->
+          <path d="M105 165 L105 200 L125 200 L125 165 Z" fill="#1a1208"/>
+          <rect x="100" y="197" width="30" height="5" rx="1" fill="#C9A84C" opacity="0.5"/>
+        </svg>
+      </div>
+      <div class="product-card-info">
+        <div class="product-name">Solstice</div>
+        <div class="product-category">Modular Mule — Gold</div>
+      </div>
+      <div class="product-card-overlay"></div>
+    </div>
+  </div>
+</section>
+
+<!-- PHILOSOPHY -->
+<section class="philosophy" id="philosophy">
+  <div class="philosophy-number">I</div>
+  <div class="philosophy-content">
+    <p class="section-eyebrow" style="color:rgba(201,168,76,0.6);">The Philosophy</p>
+    <h2 class="philosophy-heading">
+      "She doesn't pause her life<br>for her shoes."
+    </h2>
+    <p class="philosophy-sub">
+      Every RISHELLE piece is engineered at the intersection of Italian craft tradition<br>
+      and the lived reality of women who refuse to be still.
+    </p>
+    <div class="philosophy-stats">
+      <div class="stat-item">
+        <span class="stat-num">01</span>
+        <span class="stat-label">Shoe. Multiple lives.</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">∞</span>
+        <span class="stat-label">Configurations possible</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">0</span>
+        <span class="stat-label">Compromises required</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ATELIER -->
+<div style="background:var(--cream);">
+  <div class="atelier" id="atelier">
+    <div>
+      <h2 class="atelier-heading">
+        The Atelier<br>
+        <span>awaits.</span>
+      </h2>
+    </div>
+    <div class="atelier-body">
+      <p class="atelier-para">
+        Each RISHELLE piece begins with a conversation — between the woman who will wear it and the hands that will make it. Our atelier in Milan receives consultations from women across six continents, each bringing a life the shoe must move through.
+      </p>
+      <p class="atelier-para">
+        We don't sell footwear. We build a second skin that transforms with her — from the boardroom to the pavement, from the dinner to the station, without asking her to stop.
+      </p>
+      <a href="#" class="atelier-cta"><span>Enter the Atelier</span></a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="footer-top">
+    <div>
+      <span class="footer-brand">RISHELLE</span>
+      <p class="footer-tagline">
+        "Luxury that moves with her."<br><br>
+        Milan · Paris · New York · Mumbai
+      </p>
+    </div>
+    <div>
+      <p class="footer-col-title">Collection</p>
+      <ul class="footer-links">
+        <li><a href="#">Foldable Heels</a></li>
+        <li><a href="#">Convertible Boots</a></li>
+        <li><a href="#">Modular Mules</a></li>
+        <li><a href="#">Bespoke</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer-col-title">Atelier</p>
+      <ul class="footer-links">
+        <li><a href="#">Our Story</a></li>
+        <li><a href="#">Craftsmanship</a></li>
+        <li><a href="#">Sustainability</a></li>
+        <li><a href="#">Press</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer-col-title">Connect</p>
+      <ul class="footer-links">
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">Private Client</a></li>
+        <li><a href="#">Stockists</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2025 RISHELLE. All rights reserved.</p>
+    <p class="footer-copy" style="font-style:italic; font-family:'Cormorant Garamond', serif; color:rgba(245,240,232,0.15); font-size:0.7rem;">
+      Luxury that moves with her.
+    </p>
+  </div>
+</footer>
+
+<script>
+// CURSOR
+const cursor = document.getElementById('cursor');
+const cursorRing = document.getElementById('cursorRing');
+let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
+
+document.addEventListener('mousemove', e => {
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+  cursor.style.left = mouseX + 'px';
+  cursor.style.top = mouseY + 'px';
+});
+
+function animateRing() {
+  ringX += (mouseX - ringX) * 0.12;
+  ringY += (mouseY - ringY) * 0.12;
+  cursorRing.style.left = ringX + 'px';
+  cursorRing.style.top = ringY + 'px';
+  requestAnimationFrame(animateRing);
+}
+animateRing();
+
+document.querySelectorAll('a, button').forEach(el => {
+  el.addEventListener('mouseenter', () => cursorRing.classList.add('expand'));
+  el.addEventListener('mouseleave', () => cursorRing.classList.remove('expand'));
+});
+
+// PARTICLES
+function createParticles() {
+  const container = document.getElementById('particles');
+  for (let i = 0; i < 18; i++) {
+    const p = document.createElement('div');
+    p.classList.add('particle');
+    const size = Math.random() * 2 + 0.5;
+    const isGold = Math.random() > 0.6;
+    p.style.cssText = `
+      width: ${size}px;
+      height: ${size}px;
+      left: ${Math.random() * 100}%;
+      background: ${isGold ? 'rgba(201,168,76,' + (Math.random() * 0.6 + 0.2) + ')' : 'rgba(245,240,232,' + (Math.random() * 0.2 + 0.05) + ')'};
+      animation-duration: ${Math.random() * 20 + 15}s;
+      animation-delay: ${Math.random() * 15}s;
+    `;
+    container.appendChild(p);
+  }
+}
+createParticles();
+
+// NAV SCROLL
+window.addEventListener('scroll', () => {
+  const nav = document.getElementById('mainNav');
+  if (window.scrollY > 80) nav.classList.add('scrolled');
+  else nav.classList.remove('scrolled');
+});
+
+// HERO NARRATIVE SEQUENCE
+let heroPhase = 0;
+const phases = [
+  { delay: 800,  el: 'stage1', action: 'show' },
+  { delay: 2500, el: 'divider1', action: 'divider' },
+  { delay: 4000, el: 'stage1', action: 'hide' },
+  { delay: 4500, el: 'divider1', action: 'hide-div' },
+  { delay: 5000, el: 'stage2', action: 'show' },
+  { delay: 7500, el: 'stage2', action: 'hide' },
+  { delay: 8200, el: 'brandReveal', action: 'brand' },
+  { delay: 9500, el: 'taglineReveal', action: 'tagline' },
+  { delay: 10500, el: 'ctaBtn', action: 'cta' },
+];
+
+phases.forEach(phase => {
+  setTimeout(() => {
+    const el = document.getElementById(phase.el);
+    if (!el) return;
+    if (phase.action === 'show') {
+      el.classList.add('visible');
+    } else if (phase.action === 'hide') {
+      el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(-15px)';
+    } else if (phase.action === 'divider') {
+      el.classList.add('visible');
+    } else if (phase.action === 'hide-div') {
+      el.style.transition = 'opacity 0.5s ease';
+      el.style.opacity = '0';
+    } else if (phase.action === 'brand') {
+      el.classList.add('visible');
+    } else if (phase.action === 'tagline') {
+      el.classList.add('visible');
+    } else if (phase.action === 'cta') {
+      el.classList.add('visible');
+    }
+  }, phase.delay);
+});
+
+// SCROLL ANIMATIONS - IntersectionObserver
+const scrollEls = document.querySelectorAll(
+  '.section-eyebrow, .manifesto-statement, .manifesto-body, .gold-accent-line, .hr-gold, ' +
+  '.concept-heading, .feature-item, .shoe-svg-wrap, ' +
+  '.editorial-quote, .editorial-attr, ' +
+  '.collections-title, .collections-link, .product-card, ' +
+  '.philosophy-heading, .philosophy-sub, .philosophy-stats, ' +
+  '.atelier-heading, .atelier-body'
+);
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('in-view');
+    }
+  });
+}, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+
+scrollEls.forEach(el => observer.observe(el));
+
+// Smooth scroll for nav links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+</script>
+</body>
+</html>
