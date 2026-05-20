@@ -15,7 +15,7 @@ It features:
 
 ## 🚀 Live Demo
 
-https://yourusername.github.io/rishelle-website/
+RISHELLE.IN
 
 ## 🛠 Tech Stack
 
