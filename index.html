@@ -430,20 +430,16 @@ section {
 .shoe-svg-wrap::after {
   content: "";
   position: absolute;
-  bottom: 25px;
+  bottom: -8px; /* pushes it lower */
   left: 50%;
   transform: translateX(-50%);
   width: 260px;
-  height: 80px;
-  background: linear-gradient(
-    135deg,
-    rgba(255,255,255,0.96),
-    rgba(245,240,232,0.85)
-  );
+  height: 82px;
+  background: #f9f9f9;
   border-radius: 55% 45% 50% 50%;
   box-shadow:
-    0 25px 40px rgba(0,0,0,0.35),
-    inset 0 2px 4px rgba(255,255,255,0.9);
+    0 20px 35px rgba(0,0,0,0.28),
+    inset 0 1px 2px rgba(255,255,255,0.95);
   z-index: -1;
 }
 
